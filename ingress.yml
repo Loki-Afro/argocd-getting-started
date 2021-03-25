@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: petclinic-argo-ingress
+  namespace: argo-target
+spec:
+  rules:
+  - host: petclinic.argonauten.dev.hpi-schul-cloud.org
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: spring-petclinic
+          servicePort: 8080
