@@ -3,12 +3,18 @@ kind: Ingress
 metadata:
   name: petclinic-argo-ingress
   namespace: argo-target
+  annotations:
+    cert-manager.io/cluster-issuer: sc-cert-manager-clusterissuer-letsencrypt
 spec:
   rules:
-  - host: petclinic.argonauten.dev.hpi-schul-cloud.org
+  - host: petclinic.pwirth.hpi-schul-cloud.org
     http:
       paths:
       - path: /
         backend:
           serviceName: spring-petclinic
           servicePort: 8080
+  tls:
+  - hosts:
+    - petclinic.pwirth.hpi-schul-cloud.org
+    secretName: petclinic-tls
