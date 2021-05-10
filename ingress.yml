@@ -2,7 +2,6 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: petclinic-argo-ingress
-  namespace: argo-target
   annotations:
     cert-manager.io/cluster-issuer: sc-cert-manager-clusterissuer-letsencrypt
 spec:
